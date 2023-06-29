@@ -47,14 +47,19 @@ class _HomeState extends State<Home> {
                 TextField(
                   controller: val1,
                   decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
                     // 무엇을 입력하는 칸인지 알려줌
                     labelText: '첫번째 숫자를 입력하세요.',
                   ),
                   keyboardType: TextInputType.number,
                 ),
+                const SizedBox(
+                  height: 10,
+                ),
                 TextField(
                   controller: val2,
                   decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
                     // 무엇을 입력하는 칸인지 알려줌
                     labelText: '두번째 숫자를 입력하세요.',
                   ),
@@ -74,6 +79,7 @@ class _HomeState extends State<Home> {
                             borderRadius: BorderRadius.circular(5),
                           )),
                       onPressed: () {
+                        FocusScope.of(context).unfocus();
                         inputCheck();
                       },
                       child: const Text(
@@ -94,6 +100,7 @@ class _HomeState extends State<Home> {
                             borderRadius: BorderRadius.circular(5),
                           )),
                       onPressed: () {
+                        FocusScope.of(context).unfocus();
                         erase();
                       },
                       child: const Text(
@@ -106,37 +113,37 @@ class _HomeState extends State<Home> {
                 const SizedBox(
                   height: 40,
                 ),
+                // 덧셈 결과
                 TextField(
                   controller: val3,
                   decoration: const InputDecoration(
-                    // 무엇을 입력하는 칸인지 알려줌
                     labelText: '덧셈 결과',
                   ),
-                  keyboardType: TextInputType.number,
+                  readOnly: true, // 오직 읽기만 가능
                 ),
+                // 뺄셈 결과
                 TextField(
                   controller: val4,
                   decoration: const InputDecoration(
-                    // 무엇을 입력하는 칸인지 알려줌
                     labelText: '뺄셈 결과',
                   ),
-                  keyboardType: TextInputType.number,
+                  readOnly: true,
                 ),
+                // 곱셈 결과
                 TextField(
                   controller: val5,
                   decoration: const InputDecoration(
-                    // 무엇을 입력하는 칸인지 알려줌
                     labelText: '곱셈 결과',
                   ),
-                  keyboardType: TextInputType.number,
+                  readOnly: true,
                 ),
+                // 나눗셈 결과
                 TextField(
                   controller: val6,
                   decoration: const InputDecoration(
-                    // 무엇을 입력하는 칸인지 알려줌
                     labelText: '나눗셈 결과',
                   ),
-                  keyboardType: TextInputType.number,
+                  readOnly: true,
                 ),
               ],
             ),
