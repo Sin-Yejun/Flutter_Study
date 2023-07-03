@@ -40,6 +40,7 @@ class _HomeState extends State<Home> {
           FocusScope.of(context).unfocus();
         },
         child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
           child: Padding(
             padding: const EdgeInsets.all(20.0),
             child: Column(
@@ -166,7 +167,12 @@ class _HomeState extends State<Home> {
         val3.text = (value1 + value2).toString();
         val4.text = (value1 - value2).toString();
         val5.text = (value1 * value2).toString();
-        val6.text = (value1 / value2).toString();
+
+        if (value2 == 0) {
+          val6.text = 'Impossible!';
+        } else {
+          val6.text = (value1 / value2).toString();
+        }
       });
     }
   }
